@@ -1,4 +1,4 @@
-package com.mystore.mystore.repository;
+package com.mystore.main.repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

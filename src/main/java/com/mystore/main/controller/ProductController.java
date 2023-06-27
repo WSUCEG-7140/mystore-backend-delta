@@ -1,4 +1,4 @@
-package com.mystore.mystore.controller;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,13 +42,19 @@ public class ProductController {
 		return new ResponseEntity<>(products, HttpStatus.OK);
 		
 	}
-	
-	@GetMapping("/category")
-	public ResponseEntity<List<Product>> getCategoryProducts(@RequestParam String category){
-		List<Product> products = productRepository.findByCategory(category);
-		return new ResponseEntity<>(products, HttpStatus.OK);
+
+	@GetMapping("/getUserLogin")
+	public ResponseEntity<String> getUserDetails(@RequestBody User user){
+		if(user == null) {
+			return new ResponseEntity<>("User Not Found");
+		}
+		String result = productRepository.getUser(user);
+		
+		return new ResponseEntity<>(result, HttpStatus.OK);
 		
 	}
+	
+	
 }
 	
 	
